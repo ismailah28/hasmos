@@ -1,7 +1,18 @@
 <template>
-  <div class="bg-red-500 p-4">Hello World</div>
+  <div>
+    <Navbar />
+    <Header />
+  </div>
 </template>
 
 <script>
-export default {}
+import Header from '@/components/Header'
+import Navbar from '@/components/Navbar'
+
+export default {
+  components: {
+    Navbar,
+    Header,
+  },
+}
 </script>
