@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed bg-white top-0 overflow-hidden w-full shadow-sm">
+  <div class="fixed bg-white top-0 overflow-hidden w-full shadow-sm z-10">
     <header class="mx-4 md:mx-20 sm:flex sm:align-center sm:justify-between">
       <div class="flex align-center justify-between">
-        <a href="#" class="relative py-4 flex font-black text-xl tracking-tight"
+        <a href="/" class="relative py-4 flex font-black text-xl tracking-tight"
           >Isma<span
             class="absolute top-4 left-11 block text-blue-500 animate-bounce"
             >'</span
@@ -28,14 +28,14 @@
         </button>
       </div>
       <nav
-        class="sm:flex flex-col sm:flex-row align-center justify-center text-center"
+        class="-mx-4 sm:mx-0 sm:flex flex-col sm:flex-row align-center justify-center text-center border-b-4 sm:border-b-0"
         :class="isOpen ? 'block' : 'hidden'"
       >
         <a
           v-for="(link, ind) of links"
           :key="ind"
-          href="#"
-          class="-mx-4 sm:mx-0 sm:ml-6 py-4 block transition duration-500 ease-in-out hover:opacity-50 border-b sm:border-none"
+          :href="'#' + slugify(link)"
+          class="sm:ml-6 py-4 block transition duration-500 ease-in-out font-bold hover:text-blue-500"
           >{{ link }}</a
         >
       </nav>
@@ -50,6 +50,16 @@ export default {
       links: ['About Me', 'Experience', 'Work', 'Blog', 'Contact'],
       isOpen: false,
     }
+  },
+  methods: {
+    slugify(str) {
+      return str
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, '-')
+        .replace(/[^-+]-+$/g, '')
+    },
   },
 }
 </script>
