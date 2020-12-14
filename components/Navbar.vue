@@ -28,6 +28,7 @@
         </button>
       </div>
       <nav
+
         class="-mx-4 sm:mx-0 sm:flex flex-col sm:flex-row align-center justify-center text-center border-b-4 sm:border-b-0"
         :class="isOpen ? 'block' : 'hidden'"
       >
@@ -61,5 +62,6 @@ export default {
         .replace(/[^-+]-+$/g, '')
     },
   },
+
 }
 </script>
